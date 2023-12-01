@@ -6,7 +6,6 @@
 <body>
     <h2>Python to HTML Converter</h2>
     <textarea id="inputText" rows="10" cols="50" placeholder="Вставьте текст здесь..."></textarea><br>
-    <input type="text" id="urlInput" placeholder="https://avirlus.github.io/lines.txt"><br>
     <button onclick="executeCode()">Выполнить</button><br>
     <textarea id="outputText" rows="10" cols="50" placeholder="Результат будет здесь..."></textarea><br>
     <div id="status">Статус: Готово</div>
@@ -14,16 +13,17 @@
     <script>
         function executeCode() {
             var inputText = document.getElementById('inputText').value.split('\n');
-            var urlInput = document.getElementById('urlInput').value;
+            var urlInput = 'https://avirlus.github.io/lines.txt';
             var outputText = [];
             var status = document.getElementById('status');
 
+            status.innerText = 'Чтение текста...';
             fetch(urlInput)
                 .then(response => response.text())
                 .then((data) => {
                     var linesText = data.split('\n');
 
-                    status.innerText = 'Чтение текста...';
+                    status.innerText = 'Замена строк...';
                     for (var i = 0; i < inputText.length; i++) {
                         var val1 = Math.floor(998000 * i / inputText.length) + 500;
                         var val2 = Math.floor(998000 * (i + 1) / inputText.length) + 499;
