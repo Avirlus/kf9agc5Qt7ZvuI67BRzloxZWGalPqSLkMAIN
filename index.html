@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python to HTML</title>
+</head>
+<body>
+    <h2>Python to HTML Converter</h2>
+    <textarea id="inputText" rows="10" cols="50" placeholder="Вставьте текст здесь..."></textarea><br>
+    <input type="text" id="urlInput" placeholder="lines.txt"><br>
+    <button onclick="executeCode()">Выполнить</button><br>
+    <textarea id="outputText" rows="10" cols="50" placeholder="Результат будет здесь..."></textarea><br>
+    <div id="status">Статус: Готово</div>
+
+    <script>
+        function executeCode() {
+            var inputText = document.getElementById('inputText').value.split('\n');
+            var urlInput = document.getElementById('urlInput').value;
+            var outputText = [];
+            var status = document.getElementById('status');
+
+            fetch(urlInput)
+                .then(response => response.text())
+                .then((data) => {
+                    var linesText = data.split('\n');
+
+                    status.innerText = 'Чтение текста...';
+                    for (var i = 0; i < inputText.length; i++) {
+                        var val1 = Math.floor(998000 * i / inputText.length) + 500;
+                        var val2 = Math.floor(998000 * (i + 1) / inputText.length) + 499;
+                        var randomIndex = Math.floor(Math.random() * (val2 - val1 + 1)) + val1;
+                        linesText[randomIndex] = inputText[i];
+                        status.innerText = val1 + ',' + val2;
+                    }
+
+                    status.innerText = 'Сохранение нового текста...';
+                    document.getElementById('outputText').value = linesText.join('\n').replace('/new', '\n').replace('/tab', ' ');
+                    status.innerText = 'Готово';
+                });
+        }
+    </script>
+</body>
+</html>
