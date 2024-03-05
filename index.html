@@ -9,7 +9,6 @@
     <h2>Шифрование кода | Бесплатно и без регистрации и смс | Одобрено Клясс Виолеттой</h2>
     <textarea id="inputText" rows="10" cols="50" placeholder="Вставьте текст здесь..."></textarea><br>
     <button onclick="executeCode()">Выполнить</button><br>
-    <button onclick="copyOutput()">Копировать</button><br>
     <textarea id="outputText" rows="10" cols="50" placeholder="Результат будет здесь..."></textarea><br>
     <div id="status">Статус: Готово</div>
 
@@ -38,19 +37,6 @@
                     status.innerText = 'Сохранение нового текста...';
                     document.getElementById('outputText').value = linesText.join('\n').replace('/new', '\n').replace('/tab', ' ');
                     status.innerText = 'Готово';
-                });
-        }
-        function copyOutput() {
-            var outputText = document.getElementById('outputText').value;
-            // Копируем текст результата в буфер обмена
-            navigator.clipboard.writeText(outputText)
-                .then(() => {
-                    // Выводим сообщение об успешном копировании
-                    alert('Текст скопирован в буфер обмена');
-                })
-                .catch((err) => {
-                    // Выводим сообщение об ошибке
-                    alert('Не удалось скопировать текст: ' + err);
                 });
         }
     </script>
