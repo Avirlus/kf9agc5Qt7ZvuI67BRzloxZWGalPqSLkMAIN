@@ -1,0 +1,92 @@
+/* Общий стиль для всего документа */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стиль для заголовка документа */
+title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+/* Стиль для тела документа */
+body {
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Градиентный фон */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Стиль для заголовка h2 */
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Стиль для текстовых полей textarea */
+textarea {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px;
+    resize: none;
+    width: 400px;
+    height: 200px;
+    transition: all 0.3s ease; /* Плавный переход при изменении свойств */
+}
+
+/* Стиль для текстовых полей при наведении курсора */
+textarea:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Тень вокруг поля */
+    transform: scale(1.05); /* Увеличение размера поля */
+}
+
+/* Стиль для кнопки button */
+button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    background: #6a11cb;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Стиль для кнопки при наведении курсора */
+button:hover {
+    background: #2575fc;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+/* Стиль для кнопки при нажатии */
+button:active {
+    background: #6a11cb;
+    transform: scale(0.9);
+}
+
+/* Стиль для блока div с id="status" */
+#status {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 10px;
+}
