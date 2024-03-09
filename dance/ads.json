@@ -1,8 +1,0 @@
-{
-	"ads": {
-		"0": "<!-- Yandex.RTB -->~<script>window.yaContextCb=window.yaContextCb||[]</script>~<script src=\"https://yandex.ru/ads/system/context.js\" async></script>~<!-- Yandex.RTB R-A-6571554-4 -->~<div id=\"yandex_rtb_R-A-6571554-4\"></div>~<script>~window.yaContextCb.push(()=>{~	Ya.Context.AdvManager.render({~		\"blockId\": \"R-A-6571554-4\",~		\"renderTo\": \"yandex_rtb_R-A-6571554-4\",~		\"type\": \"feed\"~	})~})~</script>",
-		"1": "<!-- Yandex.RTB -->~<script>window.yaContextCb=window.yaContextCb||[]</script>~<script src=\"https://yandex.ru/ads/system/context.js\" async></script>~<!-- Yandex.RTB R-A-6571554-1 -->~<div id=\"yandex_rtb_R-A-6571554-1\"></div>~<script>~window.yaContextCb.push(()=>{~	Ya.Context.AdvManager.render({~		\"blockId\": \"R-A-6571554-1\",~		\"renderTo\": \"yandex_rtb_R-A-6571554-1\"~	})~})~</script>",
-		"2": "<!-- Yandex.RTB -->~<script>window.yaContextCb=window.yaContextCb||[]</script>~<script src=\"https://yandex.ru/ads/system/context.js\" async></script>~<!-- Yandex.RTB R-A-6571554-2 -->~<div id=\"yandex_rtb_R-A-6571554-2\"></div>~<script>~window.yaContextCb.push(()=>{~	Ya.Context.AdvManager.render({~		\"blockId\": \"R-A-6571554-2\",~		\"renderTo\": \"yandex_rtb_R-A-6571554-2\"~	})~})~</script>",
-		"3": "<!-- Yandex.RTB -->~<script>window.yaContextCb=window.yaContextCb||[]</script>~<script src=\"https://yandex.ru/ads/system/context.js\" async></script>~<!-- Yandex.RTB R-A-6571554-3 -->~<script>~window.yaContextCb.push(()=>{~	Ya.Context.AdvManager.render({~		\"blockId\": \"R-A-6571554-3\",~		\"type\": \"rewarded\",~		\"platform\": \"desktop\"~	})~})~</script>"
-	}
-}
