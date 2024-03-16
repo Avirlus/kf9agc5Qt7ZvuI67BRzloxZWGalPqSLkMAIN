@@ -1,0 +1,4 @@
+{
+	"url-images": "https://yandex.ru/images/search?from=tabbar&text=<word>&itype=png",
+	"image-html-code": "<img src=\"<url>\" class=\"img\" id=\"<id>\"/>"
+}
