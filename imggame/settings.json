@@ -1,0 +1,4 @@
+{
+	"url-images": "https://www.google.ru/search?q=<word>",
+	"image-html-code": "<img src=\"<url>\" class=\"img\" id=\"<id>\"/>"
+}
