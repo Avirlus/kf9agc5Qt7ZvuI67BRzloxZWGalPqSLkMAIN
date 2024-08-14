@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update
-myip=$(wget -qO - ens192.me)
+myip=$(hostname -I | awk '{print $1}')
 apt install strongswan strongswan-pki libcharon-extra-plugins libcharon-extauth-plugins -y
 
 # Создаем резервную копию файла настроек
