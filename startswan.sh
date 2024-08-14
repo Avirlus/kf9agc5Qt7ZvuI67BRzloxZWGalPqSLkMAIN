@@ -40,7 +40,7 @@ EOF
 # Настраиваем PSK в файле /etc/ipsec.secrets
 cat << EOF > /etc/ipsec.secrets
 # Формат: leftid : PSK "shared_secret"
-$myip : PSK "a37300593000"
+$myip : PSK "vpn37300593000"
 # your_username : EAP "your_password" - используйте этот формат для добавления нового пользователя
 EOF
 
