@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Шаг 1 — Обновляем ОС нашего сервера
-sudo apt update && sudo apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
 
 # Шаг 2 — Установка StrongSwan
 sudo apt-get install -y strongswan
