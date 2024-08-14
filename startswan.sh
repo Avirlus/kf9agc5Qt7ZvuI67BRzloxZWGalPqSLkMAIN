@@ -1,34 +1,12 @@
-#You must change the eth0 interface to your own in this script in /etc/ufw/before.rules in three places
-#Вы должны изменить интерфейс eth0 на свой в этом скрипте в /etc/ufw/before.rules в трех местах
 #!/bin/bash
 apt update
 myip=$(wget -qO - eth0.me)
 apt install strongswan strongswan-pki libcharon-extra-plugins libcharon-extauth-plugins -y
-mkdir -p ~/pki/cacerts
-mkdir -p ~/pki/certs
-mkdir -p ~/pki/private
 
-chmod 700 ~/pki
+# Создаем резервную копию файла настроек
+mv /etc/ipsec.conf{,.original} 
 
-pki --gen --type rsa --size 4096 --outform pem > ~/pki/private/ca-key.pem
-
-pki --self --ca --lifetime 3650 --in ~/pki/private/ca-key.pem \
---type rsa --dn "CN=VPN root CA" --outform pem > ~/pki/cacerts/ca-cert.pem
-
-pki --gen --type rsa --size 4096 --outform pem > ~/pki/private/server-key.pem
-
-pki --pub --in ~/pki/private/server-key.pem --type rsa \
-    | pki --issue --lifetime 1825 \
-        --cacert ~/pki/cacerts/ca-cert.pem \
-        --cakey ~/pki/private/ca-key.pem \
-        --dn "CN=$myip" --san @$myip --san $myip \
-        --flag serverAuth --flag ikeIntermediate --outform pem \
-    >  ~/pki/certs/server-cert.pem
-
-cp -r ~/pki/* /etc/ipsec.d/
-
-mv /etc/ipsec.conf{,.original} #Создаем резервную копию файла настроек
-
+# Настраиваем конфигурацию IPsec для использования PSK
 cat << EOF > /etc/ipsec.conf
 config setup
     charondebug="ike 1, knl 1, cfg 0"
@@ -46,8 +24,7 @@ conn ikev2-vpn
     rekey=no
     left=%any
     leftid=$myip
-    leftcert=server-cert.pem
-    leftsendcert=always
+    authby=secret
     leftsubnet=0.0.0.0/0
     right=%any
     rightid=%any
@@ -60,12 +37,12 @@ conn ikev2-vpn
     esp=chacha20poly1305-sha512,aes256gcm16-ecp384,aes256-sha256,aes256-sha1,3des-sha1!
 EOF
 
+# Настраиваем PSK в файле /etc/ipsec.secrets
 cat << EOF > /etc/ipsec.secrets
-: RSA "server-key.pem"
-# your_username : EAP "your_password" - use this format for create new user
-# sudo systemctl restart strongswan-starter - for the changes to take effect, after adding a new user, close the file and restart the server with this command
+# Формат: leftid : PSK "shared_secret"
+$myip : PSK "a37300593000"
+# your_username : EAP "your_password" - используйте этот формат для добавления нового пользователя
 EOF
-
 
 ufw allow OpenSSH
 ufw enable
